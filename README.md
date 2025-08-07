@@ -62,20 +62,18 @@ npm install
 
 ## Configuration Options
 
-| Option           | Type      | Default                        | Description                                                                 |
-|------------------|-----------|--------------------------------|-----------------------------------------------------------------------------|
-| `title`          | string    | "Scrapey Data"                 | Module header text                                                          |
-| `url`            | string    | *required*                     | URL of the page to scrape                                                   |
-| `updateInterval` | int       | 60                             | Refresh interval in seconds                                                 |
-| `cssSelector`    | string    | "table"                        | CSS selector for the table to scrape                                        |
-| `tableColumns`   | array     | [1,2,3]                        | Columns to display (1-based index)                                          |
-| `tableRows`      | array     | []                             | Rows to display (1-based index, empty for all)                              |
-| `showTableHeader`| boolean   | true                           | Show the table header row                                                   |
-| `plainText`      | boolean   | false                          | Display only plain text (no HTML)                                           |
-| `waitForSelector`| boolean   | false                          | Wait for selector (for JS-loaded tables, requires Puppeteer)                |
-| `browserPath`    | string    | "/usr/bin/chromium-browser"    | Path to Chromium/Chrome for Puppeteer                                       |
-| `tableWidth`     | string    | "100%"                         | CSS width for the table (e.g., "100%", "1200px")                            |
-
----
-
-For troubleshooting Puppeteer or browser issues, see
+| Option            | Type      | Default                        | Description                                                                 |
+|-------------------|-----------|--------------------------------|-----------------------------------------------------------------------------|
+| `title`           | string    | "Scrapey Data"                 | Module header text                                                          |
+| `url`             | string    | *required*                     | URL of the page to scrape                                                   |
+| `updateInterval`  | int       | 60                             | Refresh interval in seconds                                                 |
+| `cssSelector`     | string    | "table"                        | CSS selector for the table to scrape                                        |
+| `tableColumns`    | array     | [1,2,3]                        | Columns to display (1-based index)                                          |
+| `tableRows`       | array     | []                             | Rows to display (1-based index, empty for all)                              |
+| `showTableHeader` | boolean   | true                           | Show the table header row                                                   |
+| `plainText`       | boolean   | false                          | Display only plain text (no HTML)                                           |
+| `waitForSelector` | boolean   | false                          | Wait for selector (for JS-loaded tables, requires Puppeteer)                |
+| `browserPath`     | string    | "/usr/bin/chromium-browser"    | Path to Chromium/Chrome for Puppeteer                                       |
+| `tableWidth`      | string    | "100%"                         | CSS width for the table (e.g., "100%", "1200px")                            |
+| `headerStyle`     | object    | `{ opacity: null, color: null }` | Style for table header: set `opacity` (0.0–1.0, null for no style) and/or `color` (e.g., "#fff") |
+| `rowStyle`        | object    | `{ opacity: null, color: null }` | Style for table rows: set `opacity` (0.0–1.0, null for no style) and/or `color` (e.g., "#fff")   |

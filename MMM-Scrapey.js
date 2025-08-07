@@ -13,7 +13,15 @@ Module.register("MMM-Scrapey", {
         title: "Scrapey Data", // Default header text
         waitForSelector: false, // Wait for selector to appear (for JS-loaded tables)
         browserPath: "/usr/bin/chromium-browser", // Default browser path for puppeteer
-        tableWidth: "100%" // <--- Add this line for width preset
+        tableWidth: "100%", // <--- Add this line for width preset
+        headerStyle: {
+            opacity: null,   // e.g. 1.0
+            color: null      // e.g. "#fff"
+        },
+        rowStyle: {
+            opacity: null,   // e.g. 0.92
+            color: null      // e.g. "#fff"
+        }
     },
 
     start: function () {
@@ -74,6 +82,12 @@ Module.register("MMM-Scrapey", {
                     if (cell) {
                         var th = document.createElement("th");
                         th.innerHTML = cell.innerHTML;
+                        if (this.config.headerStyle.opacity !== null) {
+                            th.style.opacity = this.config.headerStyle.opacity;
+                        }
+                        if (this.config.headerStyle.color !== null) {
+                            th.style.color = this.config.headerStyle.color;
+                        }
                         headerRow.appendChild(th);
                     }
                 });
@@ -90,6 +104,12 @@ Module.register("MMM-Scrapey", {
                 var row = rows[rowIndex - 1];
                 if (row) {
                     var newRow = tbody.insertRow();
+                    if (this.config.rowStyle.opacity !== null) {
+                        newRow.style.opacity = this.config.rowStyle.opacity;
+                    }
+                    if (this.config.rowStyle.color !== null) {
+                        newRow.style.color = this.config.rowStyle.color;
+                    }
                     this.config.tableColumns.forEach((colIndex) => {
                         var cell = row.cells[colIndex - 1];
                         if (cell) {
@@ -114,5 +134,5 @@ Module.register("MMM-Scrapey", {
 
     getHeader: function () {
         return this.config.title;
-    }
+    },
 });
