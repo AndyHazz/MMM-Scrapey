@@ -10,8 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "abort-controller": "^3.0.0",
     "cheerio": "^1.0.0",
-    "puppeteer": "^22.0.0",
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^2.6.7",
+    "puppeteer": "^22.0.0"
   }
 }
